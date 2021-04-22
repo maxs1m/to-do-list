@@ -28,13 +28,14 @@ li {
 	font-size: 16px;
 	color: #53565A;
 	background-image: url(img/taking_notes.png);
-	background-position: 531px 218px;
+	background-position: 55% 218px;
 	background-repeat: no-repeat;
 }
 
 .container {
-	width: 759px;
+	width: 789px;
 	margin-left: 47px;
+	padding-right: 30px;
 }
 
 .header {
@@ -192,4 +193,76 @@ li {
 
 .strike {
 	text-decoration: line-through;
+}
+
+@media screen and (max-width: 1440px) {
+
+	.body {
+		background-position: 50% 218px;
+		width: 100%;
+	}
+
+}
+
+
+
+@media (max-width: 903px) {
+
+	.body {
+		background-size: contain;
+	}
+
+}
+
+@media (max-width: 836px) {
+
+	.container {
+		width: auto;
+	}
+
+}
+
+@media (max-width: 768px) {
+
+	.body {
+		max-width: 100%;
+		font-size: 14px;
+	}
+
+	.container {
+		margin: 0;
+		padding: 20px 30px 0;
+	}
+
+	.header {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.logo {
+		width: 174px;
+		height: 44px;
+	}
+
+	.header__search_wrap {
+		margin: 0;
+		margin-top: 20px;
+	}
+
+	.sort {
+		height: 40px;
+	}
+
+	.input__task {
+		height: 60px;
+	}
+
+	.input__label {
+		font-size: 10px;
+	}
+
+	.btn__add {
+		width: 150px;
+	}
+
 }
