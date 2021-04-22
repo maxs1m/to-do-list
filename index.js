@@ -1,4 +1,5 @@
 const newTask = document.querySelector('.input__task'); 																						// Ищем поле ввода новой задачи
+const search = document.querySelector('.header__search');
 const sumbitBtn = document.querySelector('.btn__add'); 																							// Ищем кнопку добавить задачу
 const ul = document.querySelector('.task__list'); 																									// Ищем список куда будут добавлены задачи
 let sessionMass = JSON.parse(localStorage.getItem('session')) || []; 															// Получаем массив сессии из сохраненных элементов списка в localStorage или же пустой массив
@@ -13,9 +14,6 @@ const doneBtn = document.getElementById('Done');
 init()
 function init () { 																																								// функция инициализации сохраненных элементов списка в localStorage
 	for (let i = 0; i < sessionMass.length; i++) {																									// Перебираем полученный выше массив сессии и для каждого элемента списка и обращаемся к функции, создающая <li>
-		console.log(sessionMass[i].isDone, sessionMass[i].isImportant)
-		console.log(sessionMass[i])
-		console.log(sessionMass)
 		addNewTask(sessionMass[i].value, i, sessionMass[i].isDone, sessionMass[i].isImportant)																														// или ничего не делаем если loacalStorage пуст
 	}
 }
@@ -100,21 +98,39 @@ sort.addEventListener('click', function(e) {
 	} else if (activeBtn.contains(e.target)) {
 		activeBtn.classList.add('active_sort');
 		for (let li of lies) {
-			hidden(li)
+			hidden(li, activeBtn)
 			if (li.classList.contains('done')) li.classList.add('hidden');
 		}
 	} else if (doneBtn.contains(e.target)) {
 		doneBtn.classList.add('active_sort');
 		for (let li of lies) {
-			hidden(li)
+			hidden(li, doneBtn)
 			if (!li.classList.contains('done')) li.classList.add('hidden');
 		}
 	}
 
-	function hidden(li) {
+	function hidden(li, btn) {
 		li.classList.remove('hidden');
 		li.onclick = function(e) {
-			if (!li.querySelector('.btn__important').contains(e.target)) li.classList.add('hidden');
+			if (!li.querySelector('.btn__important').contains(e.target) && btn.classList.contains('active_sort')) li.classList.add('hidden');
 		}
+	}
+})
+
+search.addEventListener('keyup', function(event) {
+	if (event.keyCode == 13) {
+		let value = search.value;																																		// получаем текст из поля поиска
+  	search.value = "";																																							// очищаем поле ввода
+  	if (value) {
+  		let lies = document.querySelectorAll('li');
+  		for (let item of sortItems) {
+				item.classList.remove('active_sort');
+			};
+			allBtn.classList.add('active_sort');
+  		for (let li of lies) {
+				li.classList.remove('hidden');
+				if (li.querySelector('span').textContent !== value) li.classList.add('hidden');
+			}																																								
+  	}
 	}
 })
