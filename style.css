@@ -1,0 +1,195 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+  list-style-type: none; /* Убираем маркеры */
+}
+
+.btn {
+	border: none;
+	padding: 0;
+	outline: none;
+	background: none;
+}
+
+.body {
+	width: 1440px;
+	min-height: 1024px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	color: #53565A;
+	background-image: url(img/taking_notes.png);
+	background-position: 531px 218px;
+	background-repeat: no-repeat;
+}
+
+.container {
+	width: 759px;
+	margin-left: 47px;
+}
+
+.header {
+	margin-top: 20px;
+	margin-bottom: 31px;
+	display: flex;
+}
+
+.header__search_wrap {
+	margin-left: 20px;
+	position: relative;
+	width: 100%;
+}
+
+.header__search {
+	width: 100%;
+	height: 40px;
+	background: linear-gradient(0deg, #F6F6F6, #F6F6F6), #FEFEFE;
+	border: 1px solid #E2E2E2;
+	box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	padding: 10px 10px 10px 36px;
+}
+
+.header__search_wrap::before {
+	content: "";
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	top: 15px;
+	left: 16px;
+	background-image: url("img/Gray.svg");
+}
+
+.sort {
+	display: flex;
+	width: 100%;
+	height: 68px;
+	border-top: 1px solid #E2E2E2;
+	font-weight: 900;
+	color: rgba(83, 86, 90, 0.5)
+}
+
+.sort__item {
+	width: 175px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.input__label {
+	font-family: 'SalesforceSans', sans-serif;
+	font-size: 12px;
+}
+
+.input__task {
+	width: 100%;
+	height: 90px;
+	background: #FFFFFF;
+	border: 1px solid #DDDBDA;
+	border-radius: 4px;
+	margin-top: 3px;
+	margin-bottom: 11px;
+}
+
+.container__button {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.btn__add {
+	width: 191px;
+	height: 36px;
+	background: #2F80ED;
+	color: #FFFFFF;
+	border: none;
+	box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.2);
+	font-size: 14px;
+}
+
+.task__list {
+	margin-top: 23px;
+}
+
+.star {
+	width: 20px;
+	height: 19px;
+	margin-right: 5px;
+}
+
+.task {
+	width: 100%;
+	height: 109px;
+	background: #FFFFFF;
+	box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	padding: 16px 12px 13px 23px;
+	position: relative;
+	margin-bottom: 17px;
+	display: flex;
+}
+
+.task__text {
+	width: 65%;
+	overflow: hidden;
+}
+
+.active_sort {
+	border-top: 4px solid #2F80ED;
+	color: rgba(83, 86, 90, 1);
+}
+
+.task_important {
+	font-weight: 700;
+}
+
+.btn__important {
+	width: 183px;
+	height: 36px;
+	position: absolute;
+	top: 13px;
+	right: 73px;
+	border-radius: 18px;
+	color: white;
+	background-color: green;
+}
+
+.btn__important_noActive {
+	background-color: grey;
+}
+
+
+.btn__delete {
+	border-radius: 50%;
+	position: absolute;
+	top: 11px;
+	right: 12px;
+	width: 40px;
+	height: 40px;
+}
+
+.hidden {
+	display: none;
+}
+
+.task:hover {
+	border: 1px solid rgba(47, 128, 237, 0.5);
+	box-shadow: 0px 6px 20px rgba(47, 128, 237, 0.5);
+}
+
+.task:hover .btn__important,
+.task:hover .btn__delete {
+	display: block;
+}
+
+.strike {
+	text-decoration: line-through;
+}
