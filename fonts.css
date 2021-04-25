@@ -1,0 +1,8 @@
+@font-face {
+        font-family: "SalesforceSans";
+        src: url("fonts/SalesforceSans-regular.woff2") format("woff2"),
+        url("fonts/SalesforceSans-Regular.woff") format("woff");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+}
